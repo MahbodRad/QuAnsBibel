@@ -1,0 +1,42 @@
+﻿
+@model QuAnsBibel.Pages.KhataModel
+@{
+    var IVT = Model._IdValuTp;
+}
+@switch (@ViewData["Switch"])
+{
+    case "Help":
+        <div class="card mt-3 mx-auto w-90">
+            <p class="card-header card-header-best">@IVT.Value</p>
+            <div class="card-body">
+                <div class="text-right">
+                    <div class="spc-pre-line">@IVT.Tp</div>
+                </div>
+            </div>
+            <div class="card-footer">
+                @if (@IVT.Reg != "")
+                {
+                    <div class="w-100 rounded-5 text-pointer text-center" onclick="Zoom(this);">
+                        <img id="Photo" src="@IVT.Reg " alt="تصویر راهنما" class="w-100 text-pointer rounded-5" />
+                        <i class="icofont-2x icofont-maximize text-primary"></i>
+                    </div>
+                    <span class="text-info">برای بزرگنمایی روی تصویر کلیک کنید</span>
+                }
+            </div>
+        </div>
+        break;
+
+    case "MSG":
+        <div class="row"><div class="col font-17"><p class="badge-Learn w-max-350 mx-auto text-center"><i class=" icofont-alarm font-22 text-warning mx-2"></i> @ViewData["MSG"]</p></div></div>
+        break;
+
+    case "Error":
+        <div class='card w-max-350 mt-3 mx-auto text-center alert-danger'>
+            <p class='card-header alert-heading'><i class="icofont-5x text-primary icofont-live-support"></i></p>
+            <div class='card-body font-32'>خطا در اجرای دستور! </div>
+            <div class='card-footer alert-info'>اطلاعات ورودی را کنترل کنید و دوباره تلاش کنید. اگر همچنان با خطا مواجه شدید به مدیریت اطلاع بدهید  </div>
+        </div>
+        break;
+    default:
+        break;
+}

@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+@{
+    var Set = Model._FormSetup;
+}
+<html lang="fa">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@Set.Title - QuAnsBibel</title>
+
+    <environment include="Development">
+        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+        <link href="~/icofont/icofont.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/icofont/icofont.min.css" rel="stylesheet" />
+    </environment>
+
+    <link href="~/css/site.css" rel="stylesheet" />
+
+</head>
+<body style="font-family: Shabnam; ">
+    <div class="bg_form_Blue">
+        <header class="fixed-top bg_form_Blue px-2">
+            <div class="d-flex justify-content-between pt-3 pb-1">
+                <div class="d-flex">
+                    <label id="MenuBtn" title="منو" class="btn_Normal btn_Brown" onclick="MenuToggel();">
+                        <i id="MenuIcon_Left" class="icofont-2x icofont-stylish-left dis-none"></i><i id="MenuIcon_Right" class="icofont-2x icofont-stylish-right"></i>
+                    </label>
+                </div>
+                <div class="text-warning">
+                     <h5>@Set.Title</h5>
+                </div>
+                <div class="">
+                    <a class="font-16 btn_Normal btn_Brown" asp-area="" asp-page="/Home">
+                        <label class="text-pointer" style="font-family: DastNevis;">سازند الکتریک</label>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="bg_form_Blue pb-5">
+            <div id="MenuArea" class="menu r_0 text-right bg_form_Blue">
+                @if (@Set.Name == "Home")
+                {
+                    <a asp-page="/MNG/Home" class="mt-4 bg-info" onclick="MenuItemClick(this);"><span><i class="text-warning icofont-1x icofont-home mx-2"></i>خانه</span></a>
+                }
+                else
+                {
+                    <a asp-page="/MNG/Home" class="mt-4" onclick="MenuItemClick(this);"><span><i class="text-warning icofont-1x icofont-home mx-2"></i>خانه</span></a>
+                }
+                @if (@Set.Name == "Rabet_Sabet")
+                {
+                    <a asp-page="/MNG/Rabet_Sabet" class="bg-info" onclick="MenuItemClick(this);"><img src="~/images/Balast.png" width="25" height="25"> <span class="mx-2"> رابط ثابت</span></a>
+                }
+                else
+                {
+                    <a asp-page="/MNG/Rabet_Sabet" onclick="MenuItemClick(this);"><img src="~/images/Balast.png" width="25" height="25"> <span class="mx-2"> رابط ثابت</span></a>
+                }
+                @if (@Set.Name == "Rabet_Sayar")
+                {
+                    <a asp-page="/MNG/Rabet_Sayar" class="bg-info" onclick="MenuItemClick(this);"><img src="~/images/Stablaizer.png" width="25" height="25"> <span class="mx-2">رابط سیار</span></a>
+                }
+                else
+                {
+                    <a asp-page="/MNG/Rabet_Sayar" onclick="MenuItemClick(this);"><img src="~/images/Stablaizer.png" width="25" height="25"> <span class="mx-2">رابط سیار</span></a>
+                }
+                @if (@Set.Name == "Mohafez_2500")
+                {
+                    <a asp-page="/MNG/Mohafez_2500" class="bg-info" onclick="MenuItemClick(this);"><img src="~/images/Mohafez2500.png" width="25" height="25"> <span class="mx-2">محافظ 2500</span></a>
+                }
+                else
+                {
+                    <a asp-page="/MNG/Mohafez_2500" onclick="MenuItemClick(this);"><img src="~/images/Mohafez2500.png" width="25" height="25"> <span class="mx-2">محافظ 2500</span></a>
+                }
+                @if (@Set.Name == "Mohafez_6000")
+                {
+                    <a asp-page="/MNG/Mohafez_6000" class="bg-info" onclick="MenuItemClick(this);"><img src="~/images/Mohafez6000.png" width="25" height="25"> <span class="mx-2">محافظ 6000</span></a>
+                }
+                else
+                {
+                    <a asp-page="/MNG/Mohafez_6000" onclick="MenuItemClick(this);"><img src="~/images/Mohafez6000.png" width="25" height="25"> <span class="mx-2">محافظ 6000</span></a>
+                }
+                @if (@Set.Name == "Sayer")
+                {
+                    <a asp-page="/MNG/Sayer" class="bg-info" onclick="MenuItemClick(this);"><img src="~/images/Sayer.png" width="25" height="25"> <span class="mx-2">سایر</span></a>
+                }
+                else
+                {
+                    <a asp-page="/MNG/Sayer" onclick="MenuItemClick(this);"><img src="~/images/Sayer.png" width="25" height="25"> <span class="mx-2">سایر</span></a>
+                }
+                @if (@Set.Name == "Contact-Us")
+                {
+                    <a asp-page="/MNG/Contact-Us" class="bg-info" onclick="MenuItemClick(this);">ارتباط با ما</a>
+                }
+                else
+                {
+                    <a asp-page="/MNG/Contact-Us" onclick="MenuItemClick(this);">ارتباط با ما</a>
+                }
+                @if (@Set.Name == "Agent")
+                {
+                    <a asp-page="/MNG/Agent" class="bg-info" onclick="MenuItemClick(this);">نمایندگان</a>
+                }
+                else
+                {
+                    <a asp-page="/MNG/Agent" onclick="MenuItemClick(this);">نمایندگان</a>
+                }
+                @if (@Set.Name == "About-Us")
+                {
+                    <a asp-page="/MNG/About-Us" class="bg-info" onclick="MenuItemClick(this);">درباره ما</a>
+                }
+                else
+                {
+                    <a asp-page="/MNG/About-Us" onclick="MenuItemClick(this);">درباره ما</a>
+                }
+                @if (@Set.Name == "Property")
+                {
+                    <a asp-page="/MNG/Property" class="bg-info" onclick="MenuItemClick(this);">ویژگی ها</a>
+                }
+                else
+                {
+                    <a asp-page="/MNG/Property" onclick="MenuItemClick(this);">ویژگی ها</a>
+                }
+
+            </div>
+
+            <div id="MainArea" class="rtl mainArea pr_170">
+                <main id="MainAreaActive" class="p-2 mt-4 main">
+                    @if (@Set.Header != "")
+                    {
+                    <div class="header-page mx-auto spc-pre-wrap">@Set.Header</div>
+                    }
+                    @RenderBody()
+                    <div class="mt-3 pb-5" id="HelpArea"></div>
+                </main>
+
+            </div>
+        </div>
+
+
+
+        <footer class="fixed-bottom bg_form_Blue_footer py-2">
+            @if (@Set.Footer != "")
+            {
+                <div class="mb-1 footer-page mx-auto spc-pre-wrap">@Set.Footer</div>
+            }
+
+            <div class="container form-row justify-content-center">
+                <label class="icofont-00x icofont-copyright"> <span>تمام حقوق سایت متعلق به شرکت سازند می باشد - 1400</span></label>
+                <label>@DateTime.Now.Year - QuAnsBibel</label>
+            </div>
+        </footer>
+
+        <div hidden>
+            <input type="hidden" id="LocalValue" value="0" />
+
+            <!-- راهنما -->
+            <form method="get" data-ajax-method="get" data-ajax="true"
+                  data-ajax-begin="SpinnerShow('HelpArea');"
+                  data-ajax-url="?handler=HelpShow"
+                  data-ajax-update="#HelpArea">
+                <input hidden type="submit" id="HelpBtn" />
+            </form>
+        </div>
+        <section>
+            <!-- دکمه برگشت به بالا -->
+            <button id="BtnGoToTop" title="برگشت به بالا" data-toggle="tooltip" class="float-left"><i class="icofont-2x icofont-stylish-up"></i></button>
+
+            <!-- پنجره پیامها -->
+            <div class="container">
+                <input id="ShowMsg_Btn" type="button" class="d-none" data-toggle="modal" data-target="#myModal" value="" />
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog center rtl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title text-primary" id="ShowMsg_TITR">Heading</h6>
+                            </div>
+                            <div class="modal-body text-center p-3 text-brown" id="ShowMsg_MATN">
+                                Msg body..
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-info font-14" data-dismiss="modal">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- پنجره فرم پیامها -->
+            <div class="container">
+                <button id="MsgFrom_Btn" onclick="AreaDown('ModalForm');" hidden>فرم پیام روی صفحه</button>
+                <div class="modal dis-none modal-dialog-scrollable pre-scrollable" id="ModalForm">
+                    <div class="modal-lg mx-auto my-3">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title text-primary" id="MsgForm_TITR">Heading</h6>
+                            </div>
+                            <div class="modal-body col text-center" id="MsgForm_MATN">
+                                Msg body..
+                            </div>
+                            <div class="modal-footer">
+                                <label class="btn_Icon Icon_Blue" onclick="AreaUp('ModalForm');" title="بستن پنجره"><i class="icofont-2x icofont-swoosh-up"></i></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- پنجره انتظار -->
+            <div class="container">
+                <button id="Spinner_Btn" onclick="AreaDown('ModalSpiner');" hidden>فرم اسپینر روی صفحه</button>
+                <div class="modal dis-none" id="ModalSpiner">
+                    <div class="modal-dialog center rtl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title text-primary" id="SpinnerMsg_TITR">Heading</h6>
+                            </div>
+                            <div class="modal-body col text-center">
+                                <div class="form-row"><img src="../images/loading.gif" class="w-max-100 mx-auto" /></div>
+                            </div>
+                            <div class="modal-footer">
+                                <img id="SpinnerHide_Btn" src="~/images/BtnOff.PNG" class="btn_Pill" onclick="AreaUp('ModalSpiner');" title="بسته شود" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- صفحه انتظار -->
+            <div id="waitbody" class="bg-secondary">
+                <div id="waitspiner">
+                    <p>لطفا منتظر باشید</p>
+                    <div class="form-row"><img src="../images/loading.gif" class="w-max-100 mx-auto111" /></div>
+                    <p><label class="btn_Pill btn_Light" onclick="AreaHide('waitbody');">بسته شود</label> </p>
+                </div>
+            </div>
+
+            <!-- پنجره زوم -->
+            <div class="container">
+                <input id="Zoom_Btn" type="button" class="d-none" data-toggle="modal" data-target="#ZoomModal" value="" />
+                <div class="modal fade" id="ZoomModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <zoom id="ZoomPic" class="w-100"></zoom>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-info font-14" data-dismiss="modal">بسته شود</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+        <script src="~/lib/microsoft.jquery.unobtrusive.ajax/3.2.6/Content/Scripts/jquery.unobtrusive-ajax.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+        <script src="~/lib/microsoft.jquery.unobtrusive.ajax/3.2.6/Content/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    </environment>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

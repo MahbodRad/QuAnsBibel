@@ -1,0 +1,18 @@
+﻿@page
+@model QuAnsBibel.Pages.KhataModel
+@{
+    ViewData["Title"] = "خطا";
+}
+<div class='card w-max-350 mt-3 mx-auto text-center alert-danger'>
+    <p class='card-header alert-heading'><i class="icofont-5x text-primary icofont-live-support"></i></p>
+    <div class='card-body font-32'>خطا در اجرای دستور! </div>
+    <div class='card-footer alert-info'>اطلاعات ورودی را کنترل کنید و دوباره تلاش کنید. اگر همچنان با خطا مواجه شدید به مدیریت اطلاع بدهید  </div>
+</div>
+<div class="text-center">
+    <div class="mx-auto w-max-350 p-5">
+        <form method="post" asp-page-handler="Return">
+            <input type="hidden" value="@ViewData["_Page"]" name="PAGE" />
+            <input type="submit" class="btn_Normal btn_Blue2" value=" برگشت به صفحه قبل" />
+        </form>
+    </div>
+</div>

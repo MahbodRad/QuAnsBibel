@@ -1,0 +1,61 @@
+﻿@page
+@model LoginModel
+@{
+    Layout = null;
+}
+
+<head>
+    <title>ورود به سازند الکتریک</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <environment include="Development">
+        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    </environment>
+
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+
+<body class="text-right back-ground-pic pt-5">
+
+    <div class="w-max-350 mx-auto border text-white rounded border-info shadow op-0-9 bg-dark p-5">
+        <form method="post">
+            <h4 class="text-center" style="font-family: DastNevis;">شرکت سازند الکتریک</h4>
+            <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
+
+            <div class="form-group ">
+                <label asp-for="LoginName" class="control-label text-warning"></label>
+                <input asp-for="LoginName" class="form-control text-center text-white bg-dark ltr" />
+                <span asp-validation-for="LoginName" class="text-warning"></span>
+            </div>
+            <div class="form-group ">
+                <label asp-for="Password" class="control-label text-warning"></label>
+                <input asp-for="Password" class="form-control text-center text-white bg-dark ltr" />
+                <span asp-validation-for="Password" class="text-warning "></span>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit" asp-page-handler="Login">ورود به <span class="font-14" style="font-family: DastNevis;">سازند الکتریک</span></button>
+            </div>
+            <div class="text-warning">@ViewData["Restp"]</div>
+            <input type="hidden" name="_Page" value="@Model._Page" />
+        </form>
+    </div>
+</body>
+<environment include="Development">
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/microsoft.jquery.unobtrusive.ajax/3.2.6/Content/Scripts/jquery.unobtrusive-ajax.js"></script>
+</environment>
+<environment exclude="Development">
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/microsoft.jquery.unobtrusive.ajax/3.2.6/Content/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+</environment>
+
+<script src="~/js/site.js" asp-append-version="true"></script>

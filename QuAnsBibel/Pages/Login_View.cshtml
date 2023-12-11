@@ -1,0 +1,28 @@
+﻿
+@model QuAnsBibel.Pages.LoginModel
+@{
+    var IVT = Model._IdValuTp;
+}
+@switch (@ViewData["Switch"])
+{
+    case "Help":
+        <div class="card mt-3 mx-auto w-90">
+            <p class="card-header card-header-best">@IVT.Value</p>
+            <div class="card-body">
+                <div class="text-right">
+                    <div class="spc-pre-line">@IVT.Tp</div>
+                </div>
+            </div>
+            <div class="card-footer">
+                @if (@IVT.Reg != "")
+                {
+                    <div class="w-100 rounded-5 text-pointer text-center" onclick="Zoom(this);">
+                        <img id="Photo" src="@IVT.Reg " alt="تصویر راهنما" class="w-100 text-pointer rounded-5" />
+                        <i class="icofont-2x icofont-maximize text-primary"></i>
+                    </div>
+                    <span class="text-info">برای بزرگنمایی روی تصویر کلیک کنید</span>
+                }
+            </div>
+        </div>
+        break;
+}
